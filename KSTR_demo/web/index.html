@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>KSTR - A live demo</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="leaflet-routing-machine-2.3.0/leaflet-routing-machine.css" />
+    <!-- Leaflet JS -->
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="leaflet-routing-machine-2.3.0/leaflet-routing-machine.js"></script>
+    <!-- Custom CSS -->
+    <link href="css/one-page-wonder.css" rel="stylesheet">
+    <!-- MapBox -->
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.css' rel='stylesheet' />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap-table.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.js"></script>
+    <!-- Bootstrap Multiselect -->
+    <script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">KSTR</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#demo">Demo</a>
+                    </li>
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- Full Width Image Header -->
+    <header class="header-image">
+        <div class="headline">
+            <div class="container">
+                <h1>KSTR</h1>
+                <h2>Keyword-aware Skyline Travel Route Recommendation</h2>
+            </div>
+        </div>
+    </header>
+    <!-- Page Content -->
+    <div class="container">
+        <hr class="featurette-divider">
+        <!-- First Featurette -->
+        <div class="featurette" id="demo">
+            <!-- <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500"> -->
+            <h2 class="featurette-heading">Demo
+                <span class="text-muted">Map</span>
+                </h2>
+            <div id="map" class="map"></div>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" id="drop" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User ID <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#demo" id='UserA'>User A</a></li>
+                                    <li><a href="#demo" id='UserB'>User B</a></li>
+                                    <li><a href="#demo" id='UserC'>User C</a></li>
+                                    <li><a href="#demo" id='UserD'>User D</a></li>
+                                    <li><a href="#demo" id='UserE'>User E</a></li>
+                                    <li><a href="#demo" id='UserF'>User F</a></li>
+                                    <li><a href="#demo" id='UserG'>User G</a></li>
+                                    <li><a href="#demo" id='UserH'>User H</a></li>
+                                    <li><a href="#demo" id='UserI'>User I</a></li>
+                                    <li><a href="#demo" id='UserJ'>User J</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input id="idinput" type="text" class="form-control" placeholder="User ID">
+                                <select id="keyword_select" multiple="multiple" > </select>
+                                From
+                                <select id="start_select" > </select>
+                                To
+                                <select id="end_select" ></select>
+                            </div>
+                            <button type="button" id="start_btn" class="btn btn-default">Start</button>
+                        </form>
+                    </div>
+                    
+                    
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+            <!-- <br> -->
+            <!-- <div class="form-group"> -->
+            <!-- <label for="exampleInputEmail1">User ID</label> -->
+            <!-- <div class="col-xs-2 col-xs-offset-5"> -->
+            <!-- <div class="col-xs-2"> -->
+            <!-- <input type="user" class="form-control" id="useridInput" placeholder="User ID"> -->
+            <!-- </div> -->
+            <!-- </div> -->
+            <!-- <div class="dropdown dropdown-center">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Dropdown
+                    <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </div> -->
+            <!-- <br> -->
+            <!-- <button type="button" class="btn btn-primary center-block btn-lg" id="start_btn">Start</button> -->
+            <div id="Routes"></div>
+            <br>
+            <div id="tb"></div>
+        </div>
+        <hr class="featurette-divider">
+        <!-- Second Featurette -->
+        <div class="featurette" id="about">
+            <!-- <img class="featurette-image img-circle img-responsive pull-left" src="http://placehold.it/500x500"> -->
+            <h2 class="featurette-heading">About
+                <span class="text-muted">KSTR</span>
+                </h2>
+            <p class="lead">KSTR is a Keyword-aware Skyline Travel Route Recommendation system.</p>
+        </div>
+        <hr class="featurette-divider">
+        <!-- Third Featurette -->
+        <div class="featurette" id="contact">
+            <!-- <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500"> -->
+            <h2 class="featurette-heading">Contact
+                <span class="text-muted">Us</span>
+                </h2>
+            <p class="lead">moonorblue@gmail.com</p>
+        </div>
+        <hr class="featurette-divider">
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; KSTR 2015</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- /.container -->
+    <script type="text/javascript">
+    var keywords = ['Aerospace/defense', 'Airport', 'App page', 'Artist', 'Arts/entertainment/nightlife', 'Arts/humanities website', 'Attractions/things to do', 'Author', 'Automobiles and parts', 'Automotive', 'Baby goods/kids goods', 'Bags/luggage', 'Bank/financial institution', 'Bank/financial services', 'Bar', 'Biotechnology', 'Book store', 'Business services', 'Cars', 'Church/religious organization', 'City', 'Clothing', 'Club', 'Coach', 'Community', 'Community organization', 'Community/government', 'Company', 'Computers/technology', 'Concert tour', 'Concert venue', 'Consulting/business services', 'Country', 'Doctor', 'Education', 'Education website', 'Electronics', 'Energy/utility', 'Entertainment website', 'Event planning/event services', 'Farming/agriculture', 'Fictional character', 'Food/beverages', 'Food/grocery', 'Furniture', 'Geographical feature', 'Glacier', 'Government Organization', 'Government organization', 'Health/beauty', 'Health/medical/pharmaceuticals', 'Health/medical/pharmacy', 'Health/wellness website', 'Home improvement', 'Hospital/clinic', 'Hotel', 'Industrials', 'Interest', 'Internet/software', 'Jewelry/watches', 'Just for fun', 'Kitchen/cooking', 'Lake', 'Landmark', 'Library', 'Local business', 'Local/travel website', 'Magazine', 'Media/news/publishing', 'Mountain', 'Movie', 'Movie theater', 'Museum/art gallery', 'Music video', 'Musician/band', 'Neighborhood', 'Non-governmental organization (ngo)', 'Non-profit organization', 'Organization', 'Other', 'Outdoor gear/sporting goods', 'Patio/garden', 'Personal blog', 'Personal website', 'Pet services', 'Podcast', 'Political organization', 'Political party', 'Producer', 'Product/service', 'Professional services', 'Public figure', 'Public places', 'Publisher', 'Real estate', 'Record label', 'Reference website', 'Restaurant/cafe', 'Retail and consumer merchandise', 'River', 'School', 'Shopping/retail', 'Small business', 'Software', 'Spas/beauty/personal care', 'Sport', 'Sports event', 'Sports team', 'Sports venue', 'Sports/recreation/activities', 'State/province/region', 'Studio', 'Telecommunication', 'Tours/sightseeing', 'Transit stop', 'Transport/freight', 'Transportation', 'Travel/leisure', 'Tv show', 'University', 'Website', 'Wine/spirits']
+    $(keywords).each(function (index, o) {    
+        var $option = $("<option/>").attr("value", o).text(o);
+    $('#keyword_select').append($option);
+    });
+
+    var time = ['Anytime','0:00','1:00','2:00','3:00','4:00','5:00','6:00','7:00','8:00','9:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00','23:00']
+
+    $(time).each(function (index, o) {    
+        var $option = $("<option/>").attr("value", o).text(o);
+    $('#start_select').append($option);
+    });
+    $(time).each(function (index, o) {    
+        var $option = $("<option/>").attr("value", o).text(o);
+    $('#end_select').append($option);
+    });
+
+    $('#start_select').multiselect();
+    $('#end_select').multiselect();
+
+    var ky = [];
+    var kyStr = '';
+    $('#keyword_select').multiselect({
+            buttonText: function(options, select) {
+                options.each(function() {
+                         if ($(this).attr('label') !== undefined) {
+                             ky.push($(this).attr('label'));
+                         }
+                         else {
+                             ky.push($(this).html());
+                         }
+                     });
+                kyStr = ky.join(',')
+                ky = [];
+                if (options.length === 0) {
+                    return 'Keywords';
+                }
+                else if (options.length > 4) {
+                    return 'More than 4 keywords selected';
+                }
+                 else {
+                     var labels = [];
+                     options.each(function() {
+                         if ($(this).attr('label') !== undefined) {
+                             labels.push($(this).attr('label'));
+                         }
+                         else {
+                             labels.push($(this).html());
+                         }
+                     });
+                     return labels.join(', ') + '';
+                 }
+    }});
+    var first = false;
+    $body = $("body");
+    $("#map").height($("#map").width() * 0.6);
+    $(document).on({
+        ajaxStart: function() {
+            $body.addClass("loading");
+        },
+        ajaxStop: function() {
+            $body.removeClass("loading");
+        }
+    });
+    // click start button
+    $("#start_btn").click(function() {
+        
+        currentCenter = map.getCenter();
+        var bbox = map.getBounds();
+        var sodaQueryBox = [
+            bbox._northEast.lat,
+            bbox._southWest.lng,
+            bbox._southWest.lat,
+            bbox._northEast.lng
+        ];
+        var uid = $("#idinput").val();
+
+       
+        if (uid == '') {
+            uid = 'User A';
+        }
+        // init data array
+        var tbData = new Array()
+        var coorData_t = new Array()
+        var nameData_t = new Array()
+        var timeData_t = new Array()
+        var categoryData_t = new Array()
+        var linkData_t = new Array()
+        var likesData_t = new Array()
+        var checkinsData_t = new Array()
+
+        for (var i = 0; i < 7; i++) {
+            tD = new Array()
+            tbData[i] = tD;
+        }
+        // call KSTR api
+        var myAPI = "http://140.113.86.130:5000/KSTR/api/v1.2/query/";
+        $.getJSON(myAPI, {
+            swLat: bbox._southWest.lat,
+            swLng: bbox._southWest.lng,
+            neLat: bbox._northEast.lat,
+            neLng: bbox._northEast.lng,
+            uid: uid,
+            keywords: kyStr,
+            stime: $("#start_select").val(),
+            etime: $("#end_select").val()
+        }).done(function(data) {
+            var dataType = ['data_skyline', 'data_pats', 'data_timescore', 'data_socialinf', 'data_skyline_ori', 'data_skyline_re','data_KM']
+            for (var k = 0; k < dataType.length; k++) {
+                var coorData = new Array()
+                var nameData = new Array()
+                var timeData = new Array()
+                var categoryData = new Array()
+                var linkData = new Array()
+                var likesData = new Array()
+                var checkinsData = new Array()
+
+                var dataLen = data[dataType[k]].length
+
+                for (var i = 0; i < dataLen; i++) {
+                    var routeLen = data[dataType[k]][i].length;
+                    coorData[i] = new Array()
+                    nameData[i] = new Array()
+                    timeData[i] = new Array()
+                    categoryData[i] = new Array()
+                    linkData[i] = new Array()
+                    likesData[i] = new Array()
+                    checkinsData[i] = new Array()
+
+                    for (var j = 0; j < routeLen; j++) {
+                        var coor = data[dataType[k]][i][j]['coor']
+                        var name = data[dataType[k]][i][j]['name']
+                        var time = data[dataType[k]][i][j]['time']
+                        var category = data[dataType[k]][i][j]['category']
+                        var link = data[dataType[k]][i][j]['link']
+                        var likes = data[dataType[k]][i][j]['likes']
+                        var checkins = data[dataType[k]][i][j]['checkins']
+                        coorData[i].push(L.latLng(coor));
+                        nameData[i].push(name);
+                        timeData[i].push(time);
+                        categoryData[i].push(category);
+                        linkData[i].push(link);
+                        likesData[i].push(likes);
+                        checkinsData[i].push(checkins);
+                    }
+                }
+                for (var i = 0; i < nameData.length; i++) {
+                    var route = ''
+                    for (var j = 0; j < nameData[i].length; j++) {
+                        if (j != nameData[i].length - 1) {
+                            route += (nameData[i][j] + '(' + timeData[i][j] +':00'+ ')');
+                            route += ' -> ';
+                        } else {
+                            route += (nameData[i][j] + '(' + timeData[i][j] +':00'+')');
+                        }
+                    }
+                    var jsonObj = new Object();
+                    jsonObj.id = i + 1;
+                    jsonObj.route = route;
+                    tbData[k].push(jsonObj);
+                }
+                coorData_t[k] = coorData
+                nameData_t[k] = nameData
+                timeData_t[k] = timeData
+                categoryData_t[k] = categoryData
+                linkData_t[k] = linkData
+                likesData_t[k] = likesData
+                checkinsData_t[k] = checkinsData
+            }
+            if (first == false) {
+                // append table with button
+                $("#Routes").append('<h2 class="featurette-heading">Recommendation <span class="text-muted">Routes</span></h2><div class="btn-group" role="group" aria-label="..."><button type="button" class="btn btn-default" id="but_skyline">Skyline_All</button><button type="button" class="btn btn-default" id="but_skyline_ori">Skyline_Ori</button><button type="button" class="btn btn-default" id="but_skyline_re">Skyline_Re</button><button type="button" class="btn btn-default" id="but_pats">PATS</button><button type="button" class="btn btn-default" id="but_timescore">TimeScore</button><button type="button" class="btn btn-default" id="but_socialinf">SocialInf</button><button type="button" class="btn btn-default" id="but_km">KM</button></div>');
+                $("#tb").append('<table id="table" ><thead><tr><th data-field="id">id</th><th data-field="route">route</th></tr></thead>');
+                first = true;
+                $('#table').bootstrapTable({
+                    data: tbData[0],
+                    onClickRow: function(row, $element) {
+                        idx = $element.attr('data-index');
+                        RC.removeFrom(map);
+                        RC = L.Routing.control({
+                            fitSelectedRoutes: false,
+                            plan: L.Routing.plan(
+                                coorData_t[0][$element.attr('data-index')], {
+                                    createMarker: function(i, wp) {
+                                        return L.marker(wp.latLng, {
+                                            draggable: false,
+                                        }).bindPopup("<b>Name: </b>"+nameData_t[0][$element.attr('data-index')][i]+"<br>"+"<b>Category: </b>"+categoryData_t[0][$element.attr('data-index')][i]+"<br>"+"<b>Likes: </b>"+likesData_t[0][$element.attr('data-index')][i]+"<br>"+"<b>Check-ins: </b>"+checkinsData_t[0][$element.attr('data-index')][i]+"<br>"+"<a href ='"+linkData_t[0][$element.attr('data-index')][i]+"' target='_blank'><b>Facebook Page</b></a>").bindLabel(nameData_t[0][$element.attr('data-index')][i], {
+                                            noHide: true
+                                        });
+                                    },
+                                }),
+                            routeWhileDragging: true,
+                            routeDragTimeout: 250
+                        }).addTo(map);
+                        $('html,body').animate({
+                                scrollTop: $("#demo").offset().top
+                            },
+                            'slow');
+                    }
+                });
+            } else {
+                $(function() {
+                    $('#table').remove();
+                    $("#tb").append('<table id="table"><thead><tr><th data-field="id">id</th><th data-field="route">route</th></tr></thead>');
+                    $('#table').bootstrapTable({
+                        data: tbData[0],
+                        onClickRow: function(row, $element) {
+                            idx = $element.attr('data-index');
+                            RC.removeFrom(map);
+                            RC = L.Routing.control({
+                                fitSelectedRoutes: false,
+                                plan: L.Routing.plan(
+                                    coorData_t[0][$element.attr('data-index')], {
+                                        createMarker: function(i, wp) {
+                                            return L.marker(wp.latLng, {
+                                                draggable: false,
+                                            }).bindPopup("<b>Name: </b>"+nameData_t[0][$element.attr('data-index')][i]+"<br>"+"<b>Category: </b>"+categoryData_t[0][$element.attr('data-index')][i]+"<br>"+"<b>Likes: </b>"+likesData_t[0][$element.attr('data-index')][i]+"<br>"+"<b>Check-ins: </b>"+checkinsData_t[0][$element.attr('data-index')][i]+"<br>"+"<a href ='"+linkData_t[0][$element.attr('data-index')][i]+"' target='_blank'><b>Facebook Page</b></a>").bindLabel(nameData_t[0][$element.attr('data-index')][i], {
+                                                noHide: true
+                                            });
+                                        },
+                                    }),
+                                routeWhileDragging: true,
+                                routeDragTimeout: 250
+                            }).addTo(map);
+                            $('html,body').animate({
+                                    scrollTop: $("#demo").offset().top
+                                },
+                                'slow');
+                        }
+                    });
+                });
+            }
+            $("#but_skyline").click(function() {
+                $(function() {
+                    $('#table').remove();
+                    $("#tb").append('<table id="table"><thead><tr><th data-field="id">id</th><th data-field="route">route</th></tr></thead>');
+                    $('#table').bootstrapTable({
+                        data: tbData[0],
+                        onClickRow: function(row, $element) {
+                            idx = $element.attr('data-index');
+                            RC.removeFrom(map);
+                            RC = L.Routing.control({
+                                fitSelectedRoutes: false,
+                                plan: L.Routing.plan(
+                                    coorData_t[0][$element.attr('data-index')], {
+                                        createMarker: function(i, wp) {
+                                            return L.marker(wp.latLng, {
+                                                draggable: false,
+                                            }).bindPopup("<b>Name: </b>"+nameData_t[0][$element.attr('data-index')][i]+"<br>"+"<b>Category: </b>"+categoryData_t[0][$element.attr('data-index')][i]+"<br>"+"<b>Likes: </b>"+likesData_t[0][$element.attr('data-index')][i]+"<br>"+"<b>Check-ins: </b>"+checkinsData_t[0][$element.attr('data-index')][i]+"<br>"+"<a href ='"+linkData_t[0][$element.attr('data-index')][i]+"' target='_blank'><b>Facebook Page</b></a>").bindLabel(nameData_t[0][$element.attr('data-index')][i], {
+                                                noHide: true
+                                            });
+                                        },
+                                    }),
+                                routeWhileDragging: true,
+                                routeDragTimeout: 250
+                            }).addTo(map);
+                            $('html,body').animate({
+                                    scrollTop: $("#demo").offset().top
+                                },
+                                'slow');
+                        }
+                    });
+                });
+            });
+            $("#but_skyline_ori").click(function() {
+                $(function() {
+                    $('#table').remove();
+                    $("#tb").append('<table id="table"><thead><tr><th data-field="id">id</th><th data-field="route">route</th></tr></thead>');
+                    $('#table').bootstrapTable({
+                        data: tbData[4],
+                        onClickRow: function(row, $element) {
+                            idx = $element.attr('data-index');
+                            RC.removeFrom(map);
+                            RC = L.Routing.control({
+                                fitSelectedRoutes: false,
+                                plan: L.Routing.plan(
+                                    coorData_t[4][$element.attr('data-index')], {
+                                        createMarker: function(i, wp) {
+                                            return L.marker(wp.latLng, {
+                                                draggable: false,
+                                            }).bindPopup("<b>Name: </b>"+nameData_t[4][$element.attr('data-index')][i]+"<br>"+"<b>Category: </b>"+categoryData_t[4][$element.attr('data-index')][i]+"<br>"+"<b>Likes: </b>"+likesData_t[4][$element.attr('data-index')][i]+"<br>"+"<b>Check-ins: </b>"+checkinsData_t[4][$element.attr('data-index')][i]+"<br>"+"<a href ='"+linkData_t[0][$element.attr('data-index')][i]+"' target='_blank'><b>Facebook Page</b></a>").bindLabel(nameData_t[4][$element.attr('data-index')][i], {
+                                                noHide: true
+                                            });
+                                        },
+                                    }),
+                                routeWhileDragging: true,
+                                routeDragTimeout: 250
+                            }).addTo(map);
+                            $('html,body').animate({
+                                    scrollTop: $("#demo").offset().top
+                                },
+                                'slow');
+                        }
+                    });
+                });
+            });
+            $("#but_skyline_re").click(function() {
+                $(function() {
+                    $('#table').remove();
+                    $("#tb").append('<table id="table"><thead><tr><th data-field="id">id</th><th data-field="route">route</th></tr></thead>');
+                    $('#table').bootstrapTable({
+                        data: tbData[5],
+                        onClickRow: function(row, $element) {
+                            idx = $element.attr('data-index');
+                            RC.removeFrom(map);
+                            RC = L.Routing.control({
+                                fitSelectedRoutes: false,
+                                plan: L.Routing.plan(
+                                    coorData_t[5][$element.attr('data-index')], {
+                                        createMarker: function(i, wp) {
+                                            return L.marker(wp.latLng, {
+                                                draggable: false,
+                                            }).bindPopup("<b>Name: </b>"+nameData_t[5][$element.attr('data-index')][i]+"<br>"+"<b>Category: </b>"+categoryData_t[5][$element.attr('data-index')][i]+"<br>"+"<b>Likes: </b>"+likesData_t[5][$element.attr('data-index')][i]+"<br>"+"<b>Check-ins: </b>"+checkinsData_t[5][$element.attr('data-index')][i]+"<br>"+"<a href ='"+linkData_t[5][$element.attr('data-index')][i]+"' target='_blank'><b>Facebook Page</b></a>").bindLabel(nameData_t[5][$element.attr('data-index')][i], {
+                                                noHide: true
+                                            });
+                                        },
+                                    }),
+                                routeWhileDragging: true,
+                                routeDragTimeout: 250
+                            }).addTo(map);
+                            $('html,body').animate({
+                                    scrollTop: $("#demo").offset().top
+                                },
+                                'slow');
+                        }
+                    });
+                });
+            });
+            $("#but_pats").click(function() {
+                $(function() {
+                    $('#table').remove();
+                    $("#tb").append('<table id="table" ><thead><tr><th data-field="id">id</th><th data-field="route">route</th></tr></thead>');
+                    $('#table').bootstrapTable({
+                        data: tbData[1],
+                        onClickRow: function(row, $element) {
+                            idx = $element.attr('data-index');
+                            RC.removeFrom(map);
+                            RC = L.Routing.control({
+                                fitSelectedRoutes: false,
+                                plan: L.Routing.plan(
+                                    coorData_t[1][$element.attr('data-index')], {
+                                        createMarker: function(i, wp) {
+                                            return L.marker(wp.latLng, {
+                                                draggable: false,
+                                            }).bindPopup("<b>Name: </b>"+nameData_t[1][$element.attr('data-index')][i]+"<br>"+"<b>Category: </b>"+categoryData_t[1][$element.attr('data-index')][i]+"<br>"+"<b>Likes: </b>"+likesData_t[1][$element.attr('data-index')][i]+"<br>"+"<b>Check-ins: </b>"+checkinsData_t[1][$element.attr('data-index')][i]+"<br>"+"<a href ='"+linkData_t[1][$element.attr('data-index')][i]+"' target='_blank'><b>Facebook Page</b></a>").bindLabel(nameData_t[1][$element.attr('data-index')][i], {
+                                                noHide: true
+                                            });
+                                        },
+                                    }),
+                                routeWhileDragging: true,
+                                routeDragTimeout: 250
+                            }).addTo(map);
+                            $('html,body').animate({
+                                    scrollTop: $("#demo").offset().top
+                                },
+                                'slow');
+                        }
+                    });
+                });
+            });
+            $("#but_timescore").click(function() {
+                $(function() {
+                    $('#table').remove();
+                    $("#tb").append('<table id="table"><thead><tr><th data-field="id">id</th><th data-field="route">route</th></tr></thead>');
+                    $('#table').bootstrapTable({
+                        data: tbData[2],
+                        onClickRow: function(row, $element) {
+                            idx = $element.attr('data-index');
+                            RC.removeFrom(map);
+                            RC = L.Routing.control({
+                                fitSelectedRoutes: false,
+                                plan: L.Routing.plan(
+                                    coorData_t[2][$element.attr('data-index')], {
+                                        createMarker: function(i, wp) {
+                                            return L.marker(wp.latLng, {
+                                                draggable: false,
+                                            }).bindPopup("<b>Name: </b>"+nameData_t[2][$element.attr('data-index')][i]+"<br>"+"<b>Category: </b>"+categoryData_t[2][$element.attr('data-index')][i]+"<br>"+"<b>Likes: </b>"+likesData_t[2][$element.attr('data-index')][i]+"<br>"+"<b>Check-ins: </b>"+checkinsData_t[2][$element.attr('data-index')][i]+"<br>"+"<a href ='"+linkData_t[2][$element.attr('data-index')][i]+"' target='_blank'><b>Facebook Page</b></a>").bindLabel(nameData_t[2][$element.attr('data-index')][i], {
+                                                noHide: true
+                                            });
+                                        },
+                                    }),
+                                routeWhileDragging: true,
+                                routeDragTimeout: 250
+                            }).addTo(map);
+                            $('html,body').animate({
+                                    scrollTop: $("#demo").offset().top
+                                },
+                                'slow');
+                        }
+                    });
+                });
+            });
+            $("#but_socialinf").click(function() {
+                $(function() {
+                    $('#table').remove();
+                    $("#tb").append('<table id="table"><thead><tr><th data-field="id">id</th><th data-field="route">route</th></tr></thead>');
+                    $('#table').bootstrapTable({
+                        data: tbData[3],
+                        onClickRow: function(row, $element) {
+                            idx = $element.attr('data-index');
+                            RC.removeFrom(map);
+                            RC = L.Routing.control({
+                                fitSelectedRoutes: false,
+                                plan: L.Routing.plan(
+                                    coorData_t[3][$element.attr('data-index')], {
+                                        createMarker: function(i, wp) {
+                                            return L.marker(wp.latLng, {
+                                                draggable: false,
+                                            }).bindPopup("<b>Name: </b>"+nameData_t[3][$element.attr('data-index')][i]+"<br>"+"<b>Category: </b>"+categoryData_t[3][$element.attr('data-index')][i]+"<br>"+"<b>Likes: </b>"+likesData_t[3][$element.attr('data-index')][i]+"<br>"+"<b>Check-ins: </b>"+checkinsData_t[3][$element.attr('data-index')][i]+"<br>"+"<a href ='"+linkData_t[3][$element.attr('data-index')][i]+"' target='_blank'><b>Facebook Page</b></a>").bindLabel(nameData_t[3][$element.attr('data-index')][i], {
+                                                noHide: true
+                                            });
+                                        },
+                                    }),
+                                routeWhileDragging: true,
+                                routeDragTimeout: 250
+                            }).addTo(map);
+                            $('html,body').animate({
+                                    scrollTop: $("#demo").offset().top
+                                },
+                                'slow');
+                        }
+                    });
+                });
+            });
+            $("#but_km").click(function() {
+                $(function() {
+                    $('#table').remove();
+                    $("#tb").append('<table id="table"><thead><tr><th data-field="id">id</th><th data-field="route">route</th></tr></thead>');
+                    $('#table').bootstrapTable({
+                        data: tbData[6],
+                        onClickRow: function(row, $element) {
+                            idx = $element.attr('data-index');
+                            RC.removeFrom(map);
+                            RC = L.Routing.control({
+                                fitSelectedRoutes: false,
+                                plan: L.Routing.plan(
+                                    coorData_t[6][$element.attr('data-index')], {
+                                        createMarker: function(i, wp) {
+                                            return L.marker(wp.latLng, {
+                                                draggable: false,
+                                            }).bindPopup("<b>Name: </b>"+nameData_t[6][$element.attr('data-index')][i]+"<br>"+"<b>Category: </b>"+categoryData_t[6][$element.attr('data-index')][i]+"<br>"+"<b>Likes: </b>"+likesData_t[6][$element.attr('data-index')][i]+"<br>"+"<b>Check-ins: </b>"+checkinsData_t[6][$element.attr('data-index')][i]+"<br>"+"<a href ='"+linkData_t[6][$element.attr('data-index')][i]+"' target='_blank'><b>Facebook Page</b></a>").bindLabel(nameData_t[6][$element.attr('data-index')][i], {
+                                                noHide: true
+                                            });
+                                        },
+                                    }),
+                                routeWhileDragging: true,
+                                routeDragTimeout: 250
+                            }).addTo(map);
+                            $('html,body').animate({
+                                    scrollTop: $("#demo").offset().top
+                                },
+                                'slow');
+                        }
+                    });
+                });
+            });
+            $('html,body').animate({
+                    scrollTop: $("#Routes").offset().top
+                },
+                'slow');
+        });
+    });
+    var map = L.map('map');
+    // map.setView([24.801641, 120.971676], 15);
+    // map.setView([22.996595, 120.216808], 15);
+    map.setView([24.151016, 120.663912], 15);
+    var currentCenter = map.getCenter();
+    var tiles;
+    tiles = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        maxZoom: 20,
+        // id: 'nctuadsl.03edcd12',
+        id: 'nctuadsl.mmb54ema',
+        accessToken: 'pk.eyJ1IjoibmN0dWFkc2wiLCJhIjoiYTQ1MTA2MDliNzU2OTE1YTIzNGQ2ODEyYzY0NDZiOTQifQ.0V2l8yBZJL9BKdc3K_9gjw'
+    }).addTo(map);
+    RC = L.Routing.control({
+        plan: L.Routing.plan(
+            [], {
+                createMarker: function(i, wp) {
+                    return L.marker(wp.latLng, {
+                        draggable: true,
+                    }).bindLabel(labels[i], {
+                        noHide: true
+                    });
+                },
+            }),
+        routeWhileDragging: true,
+        routeDragTimeout: 250
+    }).addTo(map);
+    $("#UserA").click(function() {
+        $("#idinput").val('User A')
+    });
+    $("#UserB").click(function() {
+        $("#idinput").val('User B')
+    });
+    $("#UserC").click(function() {
+        $("#idinput").val('User C')
+    });
+    $("#UserD").click(function() {
+        $("#idinput").val('User D')
+    });
+    $("#UserE").click(function() {
+        $("#idinput").val('User E')
+    });
+    $("#UserF").click(function() {
+        $("#idinput").val('User F')
+    });
+    $("#UserG").click(function() {
+        $("#idinput").val('User G')
+    });
+    $("#UserH").click(function() {
+        $("#idinput").val('User H')
+    });
+    $("#UserI").click(function() {
+        $("#idinput").val('User I')
+    });
+    $("#UserJ").click(function() {
+        $("#idinput").val('User J')
+    });
+    </script>
+    <!-- Latest compiled and minified Locales -->
+    <!-- // <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/locale/bootstrap-table-zh-CN.min.js"></script> -->
+    <div class="modal">
+    </div>
+    </style>
+</body>
+
+</html>
