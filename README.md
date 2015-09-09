@@ -52,7 +52,7 @@ expPerformance_fb_multi.py, expPerformance_fb_seq.py
 
 
 
-##KSTR_web
+##KSTR_demo
 *   core/app.py
 
     >KSTR core with Flask framework (REST api), return multiple result chosed by KSTR
