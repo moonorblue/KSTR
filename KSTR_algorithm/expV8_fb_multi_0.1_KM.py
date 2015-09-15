@@ -8,7 +8,7 @@ import time as timer
 from multiprocessing import Pool
 import sys
 import operator
-from shapely.geometry import box,Point
+# from shapely.geometry import box,Point
 import shutil
 import datetime
 from math import sqrt 
@@ -318,16 +318,16 @@ def cal_re(row):
 
     minlat, minlong, maxlat, maxlong = getMinAndMax(lats,longs)    
 
-    cover = 0.0
+    cover = 100.0
     cStart = timer.time()
-    recommend_box = box(float(minlong),float(minlat),float(maxlong),float(maxlat))
-    try:
-        cover = (recommend_box.intersection(orignal_box).area / orignal_box.area) * 100
-    except:
-        cover = 0.0
+    # recommend_box = box(float(minlong),float(minlat),float(maxlong),float(maxlat))
+    # try:
+    #     cover = (recommend_box.intersection(orignal_box).area / orignal_box.area) * 100
+    # except:
+    #     cover = 0.0
 
-    if cover == 0.0:
-        return
+    # if cover == 0.0:
+    #     return
 
 
     avg_rScore = float(rScore) / POICount
@@ -483,8 +483,8 @@ for p in pro:
     for row in rows:
         # print len(qByRegion_rows)
         print 'fb ',str(p)+" Start # "+str(progressCount)+"/"+str(length)+"\n"  
-        if progressCount > 20000:
-            break
+        # if progressCount > 20000:
+        #     break
         o_rid = str(row[6])
         if o_rid in doneSet:
             progressCount += 1
@@ -515,7 +515,7 @@ for p in pro:
         orignal_minlat = float(row[2])
         orignal_maxlong = float(row[3])
         orignal_maxlat = float(row[4])
-        orignal_box = box(orignal_minlong,orignal_minlat,orignal_maxlong,orignal_maxlat)
+        # orignal_box = box(orignal_minlong,orignal_minlat,orignal_maxlong,orignal_maxlat)
         uid = row[5]
         orignal_rid = str(row[6])
         #get relation users
