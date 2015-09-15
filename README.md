@@ -1,5 +1,23 @@
 # KSTR
 
+(optional) install virtualenv
+
+    curl -O https://pypi.python.org/packages/source/v/virtualenv/virtualenv-X.X.tar.gz
+    tar xvfz virtualenv-X.X.tar.gz
+    cd virtualenv-X.X
+    python virtualenv.py --system-site-packages myVE 
+
+(optional) use virtualenv with pip
+
+    myVE/bin/pip
+
+(optional) use virtualenv with local python
+
+    myVE/bin/python 
+
+use pip to install required library
+
+    pip install -r pip-requirement
 ##KSTR_algorithm
 *   RouteExtration.py 
 
