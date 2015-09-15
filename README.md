@@ -84,3 +84,118 @@ expPerformance_fb_multi.py, expPerformance_fb_seq.py
     >OSM map plug-in by Leaflet
     
     >Routing information by Leaflet routing machine
+
+
+##Original route format extracted from  signle user
+
+    {
+      "route": {
+        "0": [
+          {
+            "pid": "39834",
+            "time": "1269455293.0"
+          }
+        ],
+        "1": [
+          {
+            "pid": "41593",
+            "time": "1269546020.0"
+          },
+          {
+            "pid": "268",
+            "time": "1269601699.0"
+          }
+        ],
+        "15": [
+          {
+            "pid": "298",
+            "time": "1270756911.0"
+          },
+          {
+            "pid": "13120",
+            "time": "1270811956.0"
+          },
+          {
+            "pid": "295",
+            "time": "1270833028.0"
+          }
+        ]
+      },
+      "uid": "790"
+    }
+    
+
+##Routes with scores, cateogries and metadata extracted from single user
+
+    {
+      "route": [
+        [
+          {
+            "category": "Travel & Transport,Shop & Service,Hotel",
+            "timeScore": 0.47236655274101524,
+            "pid": "50163",
+            "PATS": 1,
+            "longitude": "-118.32827612555799",
+            "time": "1296921889.0",
+            "latitude": "33.34510138630335"
+          },
+          {
+            "category": "Outdoors & Recreation,Athletics & Sports",
+            "timeScore": 1,
+            "pid": "50164",
+            "PATS": 1,
+            "longitude": "-118.32670211791992",
+            "time": "1296931420.0",
+            "latitude": "33.34268272115012"
+          },
+          {
+            "category": "Travel & Transport,Shop & Service,Hotel",
+            "timeScore": 1,
+            "pid": "50163",
+            "PATS": 1,
+            "longitude": "-118.32827612555799",
+            "time": "1296991625.0",
+            "latitude": "33.34510138630335"
+          },
+          {
+            "category": "Travel & Transport,Shop & Service,Hotel",
+            "timeScore": 1,
+            "pid": "50163",
+            "PATS": 1,
+            "longitude": "-118.32827612555799",
+            "time": "1296991625.0",
+            "latitude": "33.34510138630335"
+          }
+        ],
+        [
+          {
+            "category": "Arts & Entertainment",
+            "timeScore": 1,
+            "pid": "50176",
+            "PATS": 0.8713,
+            "longitude": "-117.62486457824707",
+            "time": "1281717335.0",
+            "latitude": "33.42442134811548"
+          },
+          {
+            "category": "Nightlife Spot,Food",
+            "timeScore": 0.724277519974214,
+            "pid": "8558",
+            "PATS": 0.8411,
+            "longitude": "-117.77154943759312",
+            "time": "1281730491.0",
+            "latitude": "33.529358800455434"
+          },
+          {
+            "category": "Arts & Entertainment",
+            "timeScore": 0.49810596371713456,
+            "pid": "50176",
+            "PATS": 0.8713,
+            "longitude": "-117.62486457824707",
+            "time": "1281785187.0",
+            "latitude": "33.42442134811548"
+          }
+        ]
+      ],
+      "uid": "999"
+    }
