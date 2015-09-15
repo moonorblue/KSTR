@@ -11,13 +11,15 @@
 
     myVE/bin/pip
 
-(optional) use virtualenv with local python
+(optional) use virtualenv local python
 
     myVE/bin/python 
 
 use pip to install required library
 
-    pip install -r pip-requirement
+    pip install -r pip-requirement.txt
+    
+    
 ##KSTR_algorithm
 *   RouteExtration.py 
 
