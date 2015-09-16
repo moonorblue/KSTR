@@ -125,7 +125,7 @@ expPerformance_fb_multi.py, expPerformance_fb_seq.py
     }
     
 
-##Routes with scores, cateogries and metadata extracted from single user
+##Route with scores, cateogries and metadata extracted from single user
 
     {
       "route": [
