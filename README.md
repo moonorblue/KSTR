@@ -86,7 +86,7 @@ expPerformance_fb_multi.py, expPerformance_fb_seq.py
     >Routing information by Leaflet routing machine
 
 ##Package tutorial
-*   connect to databse (140.113.86.128)
+*   use 'pg' to communicate with db in 140.113.86.128
 
         import pg
         conn_string = "host='***.***.***.***' dbname='*****' user='*****' password='****'"
@@ -98,7 +98,7 @@ expPerformance_fb_multi.py, expPerformance_fb_seq.py
             b = row[1]
             print ' a = %s , b = %s' % ( a, b )
             
-*   connect to databse (140.113.86.130)
+*   use 'psycopg2' to communicate with db in 140.113.86.128
 
         import psycopg2
         conn_string = "host='***.***.***.***' dbname='*****' user='*****' password='****'"
@@ -111,6 +111,39 @@ expPerformance_fb_multi.py, expPerformance_fb_seq.py
             a = row[0]
             b = row[1]
             print ' a = %s , b = %s' % ( a, b )
+
+##Experiment tutorial
+*   Make VX experiment directory (V=version)
+        
+        mkdir ~/exp
+        mkdir ~/exp/VX
+        mkdir ~/exp/VX/ca
+        mkdir ~/exp/VX/fb
+
+*   Change experiment data saving path in code
+
+        
+        with open('/home/moonorblue/exp/V8/fb/allScore/expV8_'+str(p)+'.csv', 'a') as w:
+            for d in sorted_by_allScore:
+                w.write(str(d[0]) + ',' + str(d[1]) + ',' + str(d[2]) +
+                        ','  + str(d[5]) +','+str(d[6])+','+str(d[7])+','+str(d[8])+','+str(d[9])+','+str(d[18])+','+str(d[20])+ '\n')
+
+            w.close()
+        
+        with open('/home/moonorblue/exp/V9/fb/allScore/expV9_'+str(p)+'.csv', 'a') as w:
+            for d in sorted_by_allScore:
+                w.write(str(d[0]) + ',' + str(d[1]) + ',' + str(d[2]) +
+                        ','  + str(d[5]) +','+str(d[6])+','+str(d[7])+','+str(d[8])+','+str(d[9])+','+str(d[18])+','+str(d[20])+ '\n')
+
+            w.close()
+
+*   Copy dictionary data (POI information, socail relation ... etc) to local directory
+
+        mkdir ~/socialINF
+        mkdir ~/exp/materials
+        cp /home/moonorblue/socialINF/* ~/socialINF
+        cp /home/moonorblue/exp/materials ~/exp/materials
+
 
 
 
