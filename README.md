@@ -85,6 +85,34 @@ expPerformance_fb_multi.py, expPerformance_fb_seq.py
     
     >Routing information by Leaflet routing machine
 
+##Package tutorial
+*   connect to databse (140.113.86.128)
+
+        import pg
+        conn_string = "host='***.***.***.***' dbname='*****' user='*****' password='****'"
+        conn = pg.connect(conn_string)
+        query = "SELECT a,b From c;"
+        rows = conn.query(query).getresult() 
+        for row in rows:
+            a = row[0]
+            b = row[1]
+            print ' a = %s , b = %s' % ( a, b )
+            
+*   connect to databse (140.113.86.130)
+
+        import psycopg2
+        conn_string = "host='***.***.***.***' dbname='*****' user='*****' password='****'"
+        conn = psycopg2.connect(conn_string)
+        cur = conn.cursor()
+        query = "SELECT a,b From c;"
+        cur.execute(query)
+        rows = [r for r in cur]
+        for row in rows:
+            a = row[0]
+            b = row[1]
+            print ' a = %s , b = %s' % ( a, b )
+
+
 
 ##Original route format extracted from  signle user
 
