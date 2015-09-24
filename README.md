@@ -145,7 +145,9 @@ expPerformance_fb_multi.py, expPerformance_fb_seq.py
         cp /home/moonorblue/exp/materials ~/exp/materials
 
 
+##Experiment csv file format
 
+    original rid,cover routes,total time,skyline time,reconstruction time, reconstruct scoring time, original route scoring time
 
 ##Original route format extracted from  signle user
 
