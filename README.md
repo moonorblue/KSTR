@@ -52,29 +52,36 @@ use pip to install required library
 *   expV6_ca_greedypruning_TopN.py expV6_fb_greedypruning_TopN.py
 
     >Experiment of greedy pruning (Top-N%) (Figure 8)
+    
     >Use expV6_ca_parallel_skyline_avg_user_checkincount_p.csv, expV6_fb_parallel_skyline_avg_user_checkincount_p.csv to calculate the reconstruct-routes chosen ratio of skyline query
+    
     >Use expV6_ca_parallel_skyline_user_checkincount_time_p.csv, expV6_fb_parallel_skyline_user_checkincount_time_p.csv to calculate the reconstruct time and total process time
 *   expV7_ca_multi_0.1.py, expV7_fb_multi_0.1.py 
 
     >Experiment of goodness (Figure 10)
+    
     >Use each csv file with different ranking methods to calculate the goodness of cover ratio,edit distance and consine similarity
 *   expV8_ca_multi_0.1_KM.py, expV8_fb_multi_0.1_KM.py 
 
     >Experiment of goodness and prcoess time with keyword matching score
+    
     >Use each csv file with different ranking methods to calculate the goodness of cover ratio,edit distance and consine similarity
 *   expPerformance_ca_multi.py, expPerformance_ca_seq.py,
 expPerformance_fb_multi.py, expPerformance_fb_seq.py
 
     >Experiment of sequential and multiprocess processing time (Figure 9)
+    
     >Use output(process time) of code to draw Figure 9
     >> multiprocess include multi-scoring and multi-skyline search
 *   expPerformance_ca_multi_test.py, expPerformance_fb_multi_test.py
 
     >Experiment of choosing multi-processes number by response time (process time)
+    
     >The output shows the process time
 *   expPerformance_ca_multi_n_performance.py, expPerformance_fb_multi_n_performance.py
 
     >Experiment of processing time by greedy pruning (Top-N%) with different covered routes amount
+    
     >Use time csv to get the result of different covered routes amoun
 
 
