@@ -56,7 +56,7 @@ use pip to install required library
     >Use expV6_ca_parallel_skyline_user_checkincount_time_p.csv, expV6_fb_parallel_skyline_user_checkincount_time_p.csv to calculate the reconstruct time and total process time
 *   expV7_ca_multi_0.1.py, expV7_fb_multi_0.1.py 
 
-    >Experiment of goodness and prcoess time (Figure 10)
+    >Experiment of goodness (Figure 10)
     >Use each csv file with different ranking methods to calculate the goodness of cover ratio,edit distance and consine similarity
 *   expV8_ca_multi_0.1_KM.py, expV8_fb_multi_0.1_KM.py 
 
