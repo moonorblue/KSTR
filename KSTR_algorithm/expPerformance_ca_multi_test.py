@@ -601,23 +601,11 @@ for p in pro:
                 progressCount += 1
     for i in proDict:
         proDict[i] = proDict[i] / 100
-    # for i in timeDict:
-    #     timeDict[i] = timeDict[i] / 1
-    # for i in timeDict2:
-    #     timeDict2[i] = timeDict2[i] / 1
+
     print '##########'
     for i in sorted(proDict.items(), key=operator.itemgetter(0)):
         print i[1]
-    # print '##########'
-    # for i in sorted(timeDict.items(), key=operator.itemgetter(0)):
-    #     print i[1]
-    # print '@@@@'
-    # for i in sorted(timeDict2.items(), key=operator.itemgetter(0)):
-    #     print i[1]
-    # print 'final: ',str(avgReconstruct / 10) 
-    # conn.close()
-    # print p
-    # print avgReconstructTime/10,float(avgOri)/10,float(avgLength)/10
+    #print 'multiprocess process' process time of [1,2,4,8,16,32] processes
 print 'Finish!'
 
 

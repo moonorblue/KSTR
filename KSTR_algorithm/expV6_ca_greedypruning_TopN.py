@@ -532,7 +532,7 @@ for p in pro:
             #original rid, covered routes, total process time, skyline with total score time, skyline with average score time, route reconstruction time, reconstructed routes counts, routes scoring time
             y.close()
 
-
+        
         progressCount += 1
 
 

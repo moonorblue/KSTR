@@ -721,14 +721,14 @@ for p in pro:
             for d in sorted_by_allScore:
                 w.write(str(d[0]) + ',' + str(d[1]) + ',' + str(d[2]) +
                         ','  + str(d[5]) +','+str(d[6])+','+str(d[7])+','+str(d[8])+','+str(d[9])+','+str(d[18])+','+str(d[20])+ '\n')
-
+                #uid,orignal_rid, select_rid,categoryHit, cover, poi_hitCount, poiHit, if have socialINF score, editdistance, consine similarity
             w.close()
 
         with open('/home/moonorblue/exp/V8/fb/avgScore/expV8_'+str(p)+'.csv', 'a') as w:
             for d in sorted_by_avgScore:
                 w.write(str(d[0]) + ',' + str(d[1]) + ',' + str(d[2]) +
                         ','  + str(d[5]) +','+str(d[6])+','+str(d[7])+','+str(d[8])+','+str(d[9])+','+str(d[18])+','+str(d[20])+ '\n')
-
+                #uid,orignal_rid, select_rid,categoryHit, cover ratio, poi_hitCount, poiHit, if have socialINF score, editdistance, consine similarity
             w.close()
              
         
@@ -736,38 +736,39 @@ for p in pro:
             for d in sorted_by_PATS:
                 w.write(str(d[0]) + ',' + str(d[1]) + ',' + str(d[2]) +
                         ','  + str(d[5]) +','+str(d[6])+','+str(d[7])+','+str(d[8])+','+str(d[9])+','+str(d[18])+','+str(d[20])+ '\n')
-
+                #uid,orignal_rid, select_rid,categoryHit, cover ratio, poi_hitCount, poiHit, if have socialINF score, editdistance, consine similarity
             w.close()
 
         with open('/home/moonorblue/exp/V8/fb/timescore/expV8_'+str(p)+'.csv', 'a') as w:
             for d in sorted_by_timescore:
                 w.write(str(d[0]) + ',' + str(d[1]) + ',' + str(d[2]) +
                         ','  + str(d[5]) +','+str(d[6])+','+str(d[7])+','+str(d[8])+','+str(d[9])+','+str(d[18])+','+str(d[20])+ '\n')
-
+                #uid,orignal_rid, select_rid,categoryHit, cover ratio, poi_hitCount, poiHit, if have socialINF score, editdistance, consine similarity
             w.close()
 
         with open('/home/moonorblue/exp/V8/fb/socialInf/expV8_'+str(p)+'.csv', 'a') as w:
             for d in sorted_by_socialINF:
                 w.write(str(d[0]) + ',' + str(d[1]) + ',' + str(d[2]) +
                         ','  + str(d[5]) +','+str(d[6])+','+str(d[7])+','+str(d[8])+','+str(d[9])+','+str(d[18])+','+str(d[20])+ '\n')
-
+                #uid,orignal_rid, select_rid,categoryHit, cover ratio, poi_hitCount, poiHit, if have socialINF score, editdistance, consine similarity
             w.close() 
 
         with open('/home/moonorblue/exp/V8/fb/skyline/expV8_'+str(p)+'.csv', 'a') as w:
             for d in resultData_avg:
                 w.write(str(d[0]) + ',' + str(d[1]) + ',' + str(d[2]) +
                         ',' + str(d[5]) +','+str(d[6])+','+str(d[7])+','+str(d[8])+','+str(d[9])+','+str(d[18])+','+str(d[20])+ '\n')
-
+                #uid,orignal_rid, select_rid,categoryHit, cover ratio, poi_hitCount, poiHit, if have socialINF score, editdistance, consine similarity
             w.close()
         with open('/home/moonorblue/exp/V8/fb/KM/expV8_'+str(p)+'.csv', 'a') as w:
             for d in sorted_by_KM:
                 w.write(str(d[0]) + ',' + str(d[1]) + ',' + str(d[2]) +
                         ',' + str(d[5]) +','+str(d[6])+','+str(d[7])+','+str(d[8])+','+str(d[9])+','+str(d[18])+','+str(d[20])+'\n')
-
+                #uid,orignal_rid, select_rid,categoryHit, cover ratio, poi_hitCount, poiHit, if have socialINF score, editdistance, consine similarity 
             w.close()
         #time
         with open('/home/moonorblue/exp/V8/fb/expV8_time_'+str(p)+'.csv', 'a') as y:
             y.write(str(orignal_rid)+','+str(len(qByRegion_rows))+','+str(totalTime)+','+str(skyline_avg)+','+str(reconstructionTime)+','+str(result_r_time)+','+str(result_time)+','+str(len(result_r))+'\n')
+            #original rid, covered routes, total process time, skyline with average score time, route reconstruction time, reconstructed routes scoring time, original routes scoring time
             y.close()
      
 

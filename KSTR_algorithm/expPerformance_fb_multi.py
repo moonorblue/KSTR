@@ -592,18 +592,10 @@ for p in pro:
                 progressCount += 1
     for i in timeDict:
         timeDict[i] = timeDict[i] / 10
-    for i in timeDict2:
-        timeDict2[i] = timeDict2[i] / 10
     print '##########'
     for i in sorted(timeDict.items(), key=operator.itemgetter(0)):
         print i[1]
-    print '@@@@'
-    for i in sorted(timeDict2.items(), key=operator.itemgetter(0)):
-        print i[1]
-    # print 'final: ',str(avgReconstruct / 10) 
-    # conn.close()
-    # print p
-    # print avgReconstructTime/10,float(avgOri)/10,float(avgLength)/10
+    ##print 'multiprocess' process time of [100,200,400,800,1500,3000,5000,8000,12000,15000,18000,21000,24000,27000,30000] covered routes
 print 'Finish!'
 
 
