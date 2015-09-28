@@ -49,7 +49,7 @@ use pip to install required library
 *   InsertToDB
 
     >Insert all routes data into PostgreSQL database
-*   expV6_ca_1000.py expV6_fb_1000.py
+*   expV6_ca_greedypruning_TopN.py expV6_fb_greedypruning_TopN
 
     >Experiment of greedy pruning (Top-N%) (Figure 8)
 *   expV7_ca_multi_0.1.py, expV7_fb_multi_0.1.py 
