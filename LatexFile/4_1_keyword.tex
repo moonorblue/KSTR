@@ -1,0 +1,9 @@
+﻿\subsection{Query Keyword Matching} \label{subsec:KM}
+To process the user queries, we first describe how to match query keywords with the characteristic scores assigned to tags. The user-specific keywords in the query reflect the individual's preferences regarding the trip, i.e., the user tends to choose a travel route that contains POIs closely related to the semantic meanings. In the offline model, we have built a tag corpus for POIs with characteristic scores and metadata. Also, relevant tags for each POI are weighted in the TFIDF manner. Given a keyword set $K$ and arbitray POI $p$ at query time, we define a keyword matching measure \textbf{KM} with the pre-computed information:
+\vspace{-1.5mm}
+\begin{equation}
+KM(p,K) = \sum_{k \in K}{tfidf(k,p) \cdot (GS(k)+TS(k)+AT(k))}
+\end{equation}
+where \textit{tf} is the frequency of tag $k$ in a POI and \textit{idf} is the number of POIs with the tag $k$.
+
+For example, consider that given the keyword set $K$ = [``night'' ``ximending''], we then find the temporal score of ``night''= 0.9 and the geo-specific score = 0.001; the temporal score of ``ximending'' = 0.5 and the geo-specific score = 0.95. On the other hand, in a POI ``red house'', the TFIDF score of night = 0.3 and the TFIDF score of ximending = 0.8. These scores of keyword set $K$ can be aggregated for POI ``red house'' as score (0.3 $\times$ (0.9 + 0.001) ) + (0.8 $\times$ (0.5 + 0.95) ). For the route with multiple POIs, the score of each POI as computed above will be summed up. The higher the score, the more related the route is with the keyword. We filter out the routes with zero score, which means that those routes are not related to the user's preference.

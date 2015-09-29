@@ -1,0 +1,203 @@
+\relax 
+\citation{SIGMOD2010}
+\citation{hsieh2014mining}
+\citation{ICPADS2007}
+\citation{skyline2014}
+\citation{WWW2009}
+\citation{yuan2014graph}
+\citation{ye2011exploiting}
+\citation{ytwen2014}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Keyword-aware travel routes query running example.}}{1}}
+\newlabel{fig:running_example}{{1}{1}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Example of trajectory dataset}}{1}}
+\newlabel{Tab:intro_tra}{{I}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Framework Overview}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The overview of the proposed \textit  {Keyword-aware Skyline Travel Route} framework}}{2}}
+\newlabel{fig:framework}{{2}{2}}
+\citation{PATS}
+\citation{PATS}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Keyword Extraction and Pattern Discovery}{3}}
+\newlabel{sec:offline}{{III}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Keyword Extraction}{3}}
+\newlabel{subsec:KE}{{\unhbox \voidb@x \hbox {III-A}}{3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-A}1}Geo-specific keywords}{3}}
+\newlabel{subsec:KE.temporal}{{\unhbox \voidb@x \hbox {III-A}2}{3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-A}2}Temporal keywords}{3}}
+\newlabel{subsec:KE.attribute}{{\unhbox \voidb@x \hbox {III-A}3}{3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-A}3}Attribute keywords}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Pattern Discovery Methods}{3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-B}1}Determining the attractiveness scores of POIs}{3}}
+\citation{hsieh2012exploiting}
+\citation{hsieh2014mining}
+\citation{ytwen2014}
+\citation{ytwen2014}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces An example of a region transition graph}}{4}}
+\newlabel{fig:RWmodel_TraSearch}{{3}{4}}
+\newlabel{sec:offline.2}{{\unhbox \voidb@x \hbox {III-B}2}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-B}2}Proper visiting time decision}{4}}
+\newlabel{fig:night}{{4(a)}{4}}
+\newlabel{sub@fig:night}{{(a)}{4}}
+\newlabel{fig:day}{{4(b)}{4}}
+\newlabel{sub@fig:day}{{(b)}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The distributions of the visiting probability at each time unit (hour) for (a)Shihlin Night Market, and (b)Shilin Presidential Residence from check-in records.}}{4}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Shihlin Night Market}}}{4}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Shihlin Residence}}}{4}}
+\newlabel{fig:time_distribute}{{4}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces An example of visiting time scoring. Two-dimensional Gaussian distribution is adopted to deal with inconsistent data due to data sparsity.}}{4}}
+\newlabel{fig:time_ex}{{5}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-B}3}Geographical social influence}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces An example of influence propagation among three users.}}{5}}
+\newlabel{fig:sir_example}{{6}{5}}
+\newlabel{eq:diffusion}{{6}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Travel route exploration}{5}}
+\newlabel{algo:TR}{{1}{5}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Travel routes exploration}}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Query Keyword Matching}{5}}
+\newlabel{subsec:KM}{{\unhbox \voidb@x \hbox {IV-A}}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Candidate Route Generation}{5}}
+\newlabel{subsec:online.2}{{\unhbox \voidb@x \hbox {IV-B}}{5}}
+\newlabel{algo:CRG}{{2}{6}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Candidate Route Generation}}{6}}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Raw trajectory dataset.}}{6}}
+\newlabel{Tab:raw_trj}{{II}{6}}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Subset of Candidate Routes.}}{6}}
+\newlabel{Tab:re_trj}{{III}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Skyline Travel Routes Search}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}}Greedy Pruning}{6}}
+\citation{gao2012exploring}
+\citation{lee2013attribute}
+\@writefile{loa}{\contentsline {algocf}{\numberline {3}{\ignorespaces Greedy Pruning Algorithm}}{7}}
+\newlabel{algo:GP}{{3}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-E}}System Implementation}{7}}
+\newlabel{sec:implementation}{{\unhbox \voidb@x \hbox {IV-E}}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Experiments}{7}}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Details of the LBSNs}}{7}}
+\newlabel{table:data.des}{{V}{7}}
+\newlabel{fig:exp_obs1}{{7(a)}{7}}
+\newlabel{sub@fig:exp_obs1}{{(a)}{7}}
+\newlabel{fig:exp_obs2}{{7(b)}{7}}
+\newlabel{sub@fig:exp_obs2}{{(b)}{7}}
+\newlabel{fig:exp_obs3}{{7(c)}{7}}
+\newlabel{sub@fig:exp_obs3}{{(c)}{7}}
+\newlabel{fig:exp_obs4}{{7(d)}{7}}
+\newlabel{sub@fig:exp_obs4}{{(d)}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces The number of check-ins and the number of routes for all uses in \textit  {CA} and \textit  {FB} dataset, respectively. The distribution shows a long tail extending in the negative direction.}}{7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Check-in distribution of \textit {CA} dataset}}}{7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Check-in distribution of \textit {FB} dataset}}}{7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Route distribution of \textit {CA} dataset}}}{7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Route distribution of \textit {FB} dataset}}}{7}}
+\newlabel{fig:exp_obs}{{7}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-A}}Keyword matching accuracy}{7}}
+\newlabel{sec:exp.keyword}{{\unhbox \voidb@x \hbox {V-A}}{7}}
+\citation{PATS}
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Precision of keyword extraction}}{8}}
+\newlabel{tab:keywordex1}{{\unhbox \voidb@x \hbox {V-A}}{8}}
+\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Top-10 results of keyword extraction}}{8}}
+\newlabel{tab:keywordex2}{{\unhbox \voidb@x \hbox {V-A}}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Efficiency}{8}}
+\newlabel{sec:exp_run_time}{{\unhbox \voidb@x \hbox {V-B}}{8}}
+\newlabel{fig:exp_time}{{\unhbox \voidb@x \hbox {V-B}}{8}}
+\@writefile{lot}{\contentsline {table}{\numberline {VII}{\ignorespaces Running time ratio (sub-procedure time cost / total time cost) of each step.}}{8}}
+\newlabel{subsec:turing}{{\unhbox \voidb@x \hbox {V-B}1}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-B}1}Tuning Approximate Parameters}{8}}
+\newlabel{fig:exp_approx1_ca}{{8(a)}{8}}
+\newlabel{sub@fig:exp_approx1_ca}{{(a)}{8}}
+\newlabel{fig:exp_approx1_fb}{{8(b)}{8}}
+\newlabel{sub@fig:exp_approx1_fb}{{(b)}{8}}
+\newlabel{fig:exp_approx2_ca}{{8(c)}{8}}
+\newlabel{sub@fig:exp_approx2_ca}{{(c)}{8}}
+\newlabel{fig:exp_approx2_fb}{{8(d)}{8}}
+\newlabel{sub@fig:exp_approx2_fb}{{(d)}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces The effectiveness of the candidate route generation of the \textit  {CA} and \textit  {FB} dataset, respectively under different top-$N$\% of POI elements. The results converge as $N$ increases.}}{8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {The relative ratio of reconstructed routes in \textit {CA} dataset}}}{8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {The relative ratio of reconstructed routes in \textit {FB} dataset}}}{8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {The running time of the reconstruction of the \textit {CA} dataset}}}{8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {The running time of the reconstruction of the \textit {FB} dataset}}}{8}}
+\newlabel{fig:exp_approx}{{8}{8}}
+\newlabel{subsec:scale}{{\unhbox \voidb@x \hbox {V-B}2}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-B}2}Scalability}{8}}
+\newlabel{fig:exp_effi_ca}{{9(a)}{8}}
+\newlabel{sub@fig:exp_effi_ca}{{(a)}{8}}
+\newlabel{fig:exp_effi_fb}{{9(b)}{8}}
+\newlabel{sub@fig:exp_effi_fb}{{(b)}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Runtime versus route number (computation size).}}{8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {The relative ratio of reconstructed routes in the \textit {CA} dataset}}}{8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {The relative ratio of reconstructed routes in the \textit {FB} dataset}}}{8}}
+\newlabel{fig:scalability}{{9}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-C}}Evaluation of route prediction accuracy}{8}}
+\citation{ytwen2014}
+\citation{kurashima2010travel}
+\newlabel{fig:exp_accuracy3_fb}{{10(a)}{9}}
+\newlabel{sub@fig:exp_accuracy3_fb}{{(a)}{9}}
+\newlabel{fig:exp_accuracy2_fb}{{10(b)}{9}}
+\newlabel{sub@fig:exp_accuracy2_fb}{{(b)}{9}}
+\newlabel{fig:exp_accuracy1_fb}{{10(c)}{9}}
+\newlabel{sub@fig:exp_accuracy1_fb}{{(c)}{9}}
+\newlabel{fig:exp_accuracy1_ca}{{10(d)}{9}}
+\newlabel{sub@fig:exp_accuracy1_ca}{{(d)}{9}}
+\newlabel{fig:exp_accuracy2_ca}{{10(e)}{9}}
+\newlabel{sub@fig:exp_accuracy2_ca}{{(e)}{9}}
+\newlabel{fig:exp_accuracy3_ca}{{10(f)}{9}}
+\newlabel{sub@fig:exp_accuracy3_ca}{{(f)}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Average goodness accuracy of recommended travel route at different query region sizes. The yellow line represents our method and shows that KSTR has the good results over the three measurements.}}{9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Average edit distance versus to recommended travel routes of \textit {FB} dataset}}}{9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Average region cover ratio versus to recommended travel routes of \textit {FB} dataset}}}{9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Average category similarity versus to recommended travel routes of \textit {FB} dataset}}}{9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Average edit distance versus to recommended travel routes of \textit {CA} dataset}}}{9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {Average region cover ratio versus to recommended travel routes of \textit {CA} dataset}}}{9}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(f)}{\ignorespaces {Average category similarity versus to recommended travel routes of \textit {CA} dataset}}}{9}}
+\newlabel{fig:exp_accuracy}{{10}{9}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}1}Comparison of route prediction accuracy}{9}}
+\citation{PGT2014}
+\citation{Ye2012}
+\citation{WSDM2012finding}
+\citation{VLDB2010}
+\citation{ICDE2013}
+\citation{SDM2011}
+\citation{SIGMOD2010}
+\citation{rendle2010factorizing}
+\citation{WWW2009}
+\citation{ye2011exploiting}
+\citation{photo2trip}
+\citation{BBS}
+\citation{yuan2014graph}
+\citation{ge2010energy}
+\citation{MM2010}
+\citation{cao2012keyword}
+\citation{zheng2015approximate}
+\citation{SIGKDD07_TPM}
+\bibstyle{IEEEtran}
+\bibdata{reference}
+\bibcite{SIGMOD2010}{1}
+\bibcite{hsieh2014mining}{2}
+\bibcite{ICPADS2007}{3}
+\bibcite{skyline2014}{4}
+\bibcite{WWW2009}{5}
+\bibcite{yuan2014graph}{6}
+\bibcite{ye2011exploiting}{7}
+\bibcite{ytwen2014}{8}
+\bibcite{PATS}{9}
+\bibcite{hsieh2012exploiting}{10}
+\bibcite{gao2012exploring}{11}
+\bibcite{lee2013attribute}{12}
+\bibcite{kurashima2010travel}{13}
+\bibcite{PGT2014}{14}
+\bibcite{Ye2012}{15}
+\bibcite{WSDM2012finding}{16}
+\bibcite{VLDB2010}{17}
+\bibcite{ICDE2013}{18}
+\bibcite{SDM2011}{19}
+\bibcite{rendle2010factorizing}{20}
+\bibcite{photo2trip}{21}
+\bibcite{BBS}{22}
+\bibcite{ge2010energy}{23}
+\bibcite{MM2010}{24}
+\bibcite{cao2012keyword}{25}
+\bibcite{zheng2015approximate}{26}
+\bibcite{SIGKDD07_TPM}{27}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-D}}Examples of Route Recommendation: }{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Examples of KSTR routes in Kaohsiung.}}{10}}
+\newlabel{fig:example1}{{11}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusion}{10}}
+\@writefile{toc}{\contentsline {section}{References}{10}}

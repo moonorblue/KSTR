@@ -1,0 +1,44 @@
+\subsection{Keyword matching accuracy} \label{sec:exp.keyword}
+
+In this subsection, we evaluate the quality of the extracted keywords. Since our check-in datasets do not have sufficient text descriptions, i.e., tags, we collected an additional photo dataset consisting of 165,057 photos with 958,441 tags in the same local area. For that, the tags are regarded as input keyword. We ranked the tags by using scores in Section III-A and measured precision@$K$. Table V shows the precision of deciding  the Geo-specific, Temporal, and Attribute keywords.\footnote{For attribute extraction, we adopt~\cite{lee2013attribute} extracting probable attributes of all possible concepts. We can adopt 10 concepts aligned with POI categories, and Table VI illustrates attributes of `Food' concept for restaurant POIs.} We can see that the precision is reasonably high and does not decrease much as $K$ increases. Table VI shows the results for keyword extraction. Note that the keywords in italics are the Chinese keywords returned, which we translate for presentation. In the geo-specific dimension, 10 keywords referring to certain places are highly ranked. For example, a keyword `Longshan' represents `Longshan Temple'. In the temporal dimension, there is no doubt that keywords such as `Sunset', `Sunrise', `Lunch' and `Night' are specific to a certain time interval. `Dadaocheng' is ranked high as it is a place famous for its sunset. Also, `Butterfly' and `Fireworks' are strongly associated with day time and night time respectively. In the attribute dimension, keywords relevant to restaurant POIs are highly ranked.
+
+\begin{table}[h]\scriptsize
+\begin{center}
+\caption{Precision of keyword extraction}
+\vspace{1mm}
+{\scriptsize\begin{tabular}{ | c | c | c | c |}
+    \hline
+     & P@10 & P@20 & P@40 \\ \hline\hline
+    Geo-specific keyword &  1.000&  1.000& 0.975 \\ \hline
+    Temporal keyword &  0.900&  0.700& 0.720 \\ \hline
+    Attribute keyword & 1.000&  0.850& 0.775 \\ \hline
+ \end{tabular}}
+\end{center}
+\label{tab:keywordex1}
+\end{table} 
+\vspace{-2mm}
+
+\begin{table}[h]\scriptsize
+\begin{center}
+\caption{Top-10 results of keyword extraction}
+\vspace{1mm}
+{\scriptsize\begin{tabular}{ | c | p{24mm} | p{13mm}  | p{13mm} |}
+    \hline
+    & \multicolumn{3}{c|}{Keyword types} \\ 
+    \cline{2-4}
+     & \hspace{5mm} Geo-specific&\hspace{1mm}  Temporal &\hspace{1.5mm}  Attribute \\ \hline
+    1 & Longshan &  \textit{Sunset}  & Recipe\\ \hline
+    2 & \textit{Guanghua digital plaza} &  Sunset  & Soup \\ \hline
+    3 & \textit{Huashan creative park} &  \textit{Sunrise}  & Store \\ \hline
+    4 & \textit{NTN univ.} &  \textit{Dadaocheng}  & Oil \\ \hline
+    5 & \textit{Dadaocheng dock} & \textit{Fireworks}   & Sale \\ \hline
+    6 & \textit{Forty-four village}& Fireworks & Butter \\ \hline
+    7 & \textit{Taipei fine arts museum} &  Butterfly   & Sauce \\ \hline
+    8 & \textit{Three gorges street} & Boat   & Bread \\ \hline
+    9 & Ximending & Lunch   & Chicken\\ \hline
+    10 & \textit{CKS memorial hall} & Night  & Delivery \\ \hline
+ \end{tabular}}
+\end{center}
+\label{tab:keywordex2}
+\end{table}
+\vspace{-2mm}

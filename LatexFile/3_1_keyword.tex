@@ -1,0 +1,29 @@
+﻿\subsection{Keyword Extraction} \label{subsec:KE}
+In this subsection, we present how we extract the semantic meaning of the keywords and propose a matched score to describe the degree of connection between keywords and trajectories. The keyword extraction module first computes the spatial, temporal and attribute scores for every keyword $w$ in the corpus. At query time, each query keyword will be matched to the pre-computed score of matching $w$.
+
+\subsubsection{Geo-specific keywords} 
+Some tags are specific to a location, which represents its spatial nature.
+To quantify the geo-specificity of a tag, an external database identifies geo-terms in the overall tag set and then the tag distribution on the map rates the identified geo-terms. Specifically, to identify name tags, we leverage an external geo-database. In Microsoft Bing services, Geocode Dataflow API (GDA) \footnote{https://msdn.microsoft.com/library/ff701733.aspx} can query large numbers of geo-terms and their representative locations. For a tag $w$, using GDA, we set $GDA(w)$ as 1 if its location is returned, and 0 otherwise. Then, using the geographic distribution of the tags, we can find place-level geo-terms like `Taipei101' in noisy geo-terms. Country-level geo-terms like `USA' and city-level geo-terms like `Seattle' are far more widely distributed on the globe than place-level geo-terms. Thus, we compute the variance $GeoVar(w)$ of the $(latitude,longitude)$ set including a tag $w$. With these features, we define a geo-specificity (\textsf{GS}) score of a tag $w$ as:
+\begin{equation}
+GS(w) \propto GDA(w)\cdot exp(-GeoVar(w))
+\end{equation}
+We consider a tag $w$ as a geo-specific keyword if $GS(w)$ is greater than a pre-defined threshold.
+
+
+\subsubsection{Temporal keywords} \label{subsec:KE.temporal}% time distribution
+Some tags are specific to a time interval, which represents its temporal nature. To quantify the temporal-spatiality of a tag, time distribution on a tag rates the identified temporal-terms. Using time distribution of tags, we can find tags associated with a specific time interval like `sunset'. Tags independent of time like `Taipei' are far more widely distributed in time than time-specific tags. Thus, to identify temporal-tags, we compute the variance $TimeVar(w)$ of the creation time of check-ins including a tag $w$. With these features, we define a temporal-specificity (\textsf{TS}) score of a tag $w$ as:
+\begin{equation}
+TS(w) \propto exp(-TimeVar(w))
+\end{equation}
+We consider a tag $w$ as a temporal keyword if $TS(w)$ is greater than a pre-defined threshold. Then, given a temporal keyword $w$, we generate a 2-dimensional Gaussian $\mathcal{N}_t(\mu,\sigma^2)$ that models the distribution of the occurring time of $w$ and define the associated time of $w$ as a time interval with up to two standard devations from $\mu$.
+
+
+\subsubsection{Attribute keywords} \label{subsec:KE.attribute}
+To find attribute keywords, we consider tags frequently associated with a POI (TF), while not with so many other POIs (IDF). To quantify the relevance between a tag and a POI, we define a ``document'' as an estimated check-in set $I_{p}$ of $p$. Using this POI-driven knowledge, our scoring conveys the POI semantic information in both TF and IDF.
+
+Specifically, we use three types of frequencies: check-in frequency (\emph{pf}), user frequency (\emph{uf}), and POI frequency (\emph{rf}). Given a tag $w$ and a POI $p$, $pf(I_{p},w)$ is the number of check-ins that have $w$ in $I_{p}$. It is reasonable that a tag is likely to be one of the attribute tags as more check-ins of the POI have the tag. However, some users have the same tags in different check-ins causing overestimation of \emph{pf}. Similarly, $uf(I_{p},w)$ is the number of users that assign $w$ in $I_{p}$. \emph{uf} can control overestimated \emph{pf}. However, we need to filter common tags like `Travel', which also have high \emph{pf} and \emph{uf}.
+Given a tag $w$ and a set $p$ of all POIs, $rf(L,w)$ is the number of POIs $p \in L$ having $w$ in $I_{p}$. Consider the $rf$ distribution on the overall tag set. The head may contain tags that would be too generic attributes for all POIs, while tags in the tail (i.e., $rf=1$) are likely not to be attribute terms. With these three types of frequencies, we define an attribute (\textsf{AT}) score of a tag $w$ as:
+\begin{equation}
+AT(w) \propto \max_{p \in L} \frac {pf(I_{p},w)\cdot uf(I_{p},t)}{rf(L,w)}
+\end{equation}
+We consider a tag $w$ as an attribute keyword if $AT(w)$ is greater than a pre-defined threshold and $rf(L,w)>1$.
