@@ -573,6 +573,7 @@ for p in pro:
          
         with open('/home/moonorblue/exp/topk_6/fb/expV6_fb_parallel_skyline_total_user_checkincount_'+str(p)+'.csv', 'a') as w:
             for d in resultData:
+                #resultData is the result use the total score of the route by skyline 
                 w.write(str(d[0]) + ',' + str(d[1]) + ',' + str(d[2]) +
                         ',' + str(d[3]) + ',' + str(d[4]) + ',' + str(d[5]) +','+str(d[6])+','+str(d[7])+','+str(d[8])+','+str(d[9])+','+str(d[18])+','+str(d[12])+','+str(d[13])+','+str(d[14])+ '\n')
                 #uid,original_rid, select_rid, total route Score, avg route score, category hit rate, cover ratio, poi hitCount, poi hit rate,if have socialINF score, editdistance,Total PATS score , Total Timescore, Total SocialINF score
@@ -580,6 +581,7 @@ for p in pro:
             w.close()
         with open('/home/moonorblue/exp/topk_6/fb/expV6_fb_parallel_skyline_avg_user_checkincount_'+str(p)+'.csv', 'a') as w:
             for d in resultData_avg:
+                #resultData_avg is the result use the average score of the route by skyline 
                 w.write(str(d[0]) + ',' + str(d[1]) + ',' + str(d[2]) +
                         ',' + str(d[3]) + ',' + str(d[4]) + ',' + str(d[5]) +','+str(d[6])+','+str(d[7])+','+str(d[8])+','+str(d[9])+','+str(d[18])+','+str(d[15])+','+str(d[16])+','+str(d[17])+ '\n')
                 #uid,original_rid, select_rid, rtotal route Score, avg route score, category hit rate, cover ratio, poi hitCount, poi hit rate,if have socialINF score, editdistance,Average PATS score, Average Timescore, Average SocialINF score
@@ -587,7 +589,7 @@ for p in pro:
             w.close()
         with open('/home/moonorblue/exp/topk_6/fb/expV6_fb_parallel_skyline_user_checkincount_time_'+str(p)+'.csv', 'a') as y:
             y.write(str(orignal_rid)+','+str(len(qByRegion_rows))+','+str(totalTime)+','+str(skyline_total)+','+str(skyline_avg)+','+str(reconstructionTime)+','+str(len(reconstructionOutput))+','+str(result_time)+'\n')
-            #original rid, covered routes, total process time, skyline with total score time, skyline with average score time, route reconstruction time, reconstructed routes counts, routes scoring time
+            #original rid, covered routes, total process time, skyline time with total score, skyline time with average score, route reconstruction time, reconstructed routes counts, routes scoring time
             y.close()
 
 

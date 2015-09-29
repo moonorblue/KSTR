@@ -768,7 +768,7 @@ for p in pro:
         #time
         with open('/home/moonorblue/exp/V8/fb/expV8_time_'+str(p)+'.csv', 'a') as y:
             y.write(str(orignal_rid)+','+str(len(qByRegion_rows))+','+str(totalTime)+','+str(skyline_avg)+','+str(reconstructionTime)+','+str(result_r_time)+','+str(result_time)+','+str(len(result_r))+'\n')
-            #original rid, covered routes, total process time, skyline with average score time, route reconstruction time, reconstructed routes scoring time, original routes scoring time
+            #original rid, covered routes, total process time, skyline time with average score, route reconstruction time, reconstructed routes scoring time, original routes scoring time
             y.close()
      
 
