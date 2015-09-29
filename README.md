@@ -275,3 +275,24 @@ expPerformance_fb_multi.py, expPerformance_fb_seq.py
       ],
       "uid": "999"
     }
+
+##Latex source files
+* ICDM2015_cr.tex
+
+    >main file, include other part of paper, edit these part inside with the corresponding .tex file
+    
+    >>1_introduction-v1.tex
+    
+    >>2_framework_v1.tex
+    
+    >>3_1_keyword.tex
+    
+    >>3_2_feature-v1.tex
+    
+    >>4_1_keyword.tex
+    
+    >>4_skyline_v1.tex
+    
+    >>5_experiment_yeo.tex
+    
+    >>5_experiment-v1.tex
